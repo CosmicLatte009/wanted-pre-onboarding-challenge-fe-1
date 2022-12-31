@@ -1,0 +1,10 @@
+.btn {
+	width: 322px;
+	line-height: 44px;
+	border-radius: 20px;
+	background-color: var(--primary-color);
+	font-family: "Noto Sans KR", "sans-serif";
+	font-weight: 400;
+	font-size: 14px;
+	color: #ffffff;
+}
