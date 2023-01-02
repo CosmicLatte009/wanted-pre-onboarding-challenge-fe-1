@@ -154,3 +154,13 @@ button {
 	cursor: pointer;
 	background-color: transparent;
 }
+
+textarea {
+	border: none;
+	resize: none;
+	overflow: hidden;
+}
+
+textarea:focus {
+	outline: none;
+}

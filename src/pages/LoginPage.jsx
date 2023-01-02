@@ -1,8 +1,8 @@
 import React from "react";
 import FormWrap from "../components/auth/FormWrap";
-import Button from "../components/Button";
+import Button from "../components/common/Button";
 import AuthInput from "../components/auth/AuthInput";
-import styles from "../style/LoginPage.module.css";
+import styles from "../style/pageStyle/LoginPage.module.css";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
