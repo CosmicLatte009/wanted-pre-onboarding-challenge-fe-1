@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../style/FormWrap.module.css";
+import styles from "../../style/authStyle/FormWrap.module.css";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
