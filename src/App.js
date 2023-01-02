@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import JoinPage from "./pages/JoinPage";
 import LoginPage from "./pages/LoginPage";
-import "./style/reset.css";
-import "./style/utils.css";
+import "./style/commonStyle/reset.css";
+import "./style/commonStyle/utils.css";
 
 function App() {
 	return (

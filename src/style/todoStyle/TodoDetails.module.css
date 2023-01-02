@@ -1,0 +1,25 @@
+.wrap {
+	text-align: center;
+	margin: 35px auto 0;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 15px;
+}
+
+.textarea-box {
+	background-color: var(--light-color);
+	border-radius: 5px;
+	width: 300px;
+	padding: 10px;
+	font-family: "spoqa han sans neo", "sans-serif";
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.textarea-box:hover {
+	-webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
