@@ -1,6 +1,6 @@
 import React from "react";
 import FormWrap from "../components/auth/FormWrap";
-import Button from "../components/common/Button";
+import Button from "../components/auth/Button";
 import AuthInput from "../components/auth/AuthInput";
 import styles from "../style/pageStyle/LoginPage.module.css";
 import classNames from "classnames/bind";
@@ -12,8 +12,8 @@ const LoginPage = () => {
 		<main className={cx("wrap")}>
 			<h1 className={cx("title")}>로그인</h1>
 			<FormWrap>
-				<AuthInput type="text" inputName="id" inputID="loginID">
-					아이디
+				<AuthInput type="text" inputName="id" inputID="loginEmail">
+					이메일
 				</AuthInput>
 				<AuthInput type="password" inputName="pw" inputID="loginPW">
 					비밀번호
