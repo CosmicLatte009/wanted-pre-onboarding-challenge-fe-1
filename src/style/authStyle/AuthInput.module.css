@@ -19,3 +19,12 @@
 .input:hover {
 	border-bottom: 1px solid var(--primary-color);
 }
+
+.error-message {
+	margin-top: 5px;
+	-ms-flex-item-align: start;
+	align-self: flex-start;
+	font-weight: 400;
+	font-size: 12px;
+	color: var(--highlight-color);
+}
