@@ -4,9 +4,14 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const Button = ({ children, disabled }) => {
+const Button = ({ children, disabled, onClick }) => {
 	return (
-		<button className={cx("btn")} type="submit" disabled={disabled}>
+		<button
+			className={cx("btn")}
+			type="submit"
+			disabled={disabled}
+			onClick={onClick}
+		>
 			{children}
 		</button>
 	);

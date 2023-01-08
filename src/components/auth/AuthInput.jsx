@@ -5,7 +5,8 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const AuthInput = (props) => {
-	const { children, type, inputID, inputName, onChange } = props;
+	const { children, type, inputID, inputName, useRef, onChange, errorMessage } =
+		props;
 	return (
 		<>
 			<label className={cx("label")} htmlFor={inputID}>
@@ -16,8 +17,10 @@ const AuthInput = (props) => {
 				type={type}
 				name={inputName}
 				id={inputID}
+				ref={useRef}
 				onChange={onChange}
 			/>
+			<strong className={cx("error-message")}>{errorMessage}</strong>
 		</>
 	);
 };

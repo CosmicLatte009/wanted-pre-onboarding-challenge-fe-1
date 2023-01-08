@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 const FormWrap = ({ children }) => {
 	return (
-		<form className={cx("wrap")} action="" method="post">
+		<form className={cx("wrap")} action="" method="">
 			{children}
 		</form>
 	);
