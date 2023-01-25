@@ -13,7 +13,7 @@ const JoinPage = () => {
 	const [passwordValid, setPasswordValid] = useState(false);
 
 	const [emailErrorMessage, setEmailErrorMessage] = useState("");
-	const [passwordErrorMessage, setPasswordMessage] = useState("");
+	const [passwordErrorMessage, setPasswordErroMessage] = useState("");
 
 	const emailRef = useRef();
 	const passwordRef = useRef();
@@ -39,13 +39,13 @@ const JoinPage = () => {
 		const passwordValue = target.value;
 		if (passwordValue.length >= 8) {
 			setPasswordValid(true);
-			setPasswordMessage("");
+			setPasswordErroMessage("");
 		} else if (passwordRef.current.value === "") {
 			setPasswordValid(false);
-			setPasswordMessage("");
+			setPasswordErroMessage("");
 		} else {
 			setPasswordValid(false);
-			setPasswordMessage("패스워드 길이는 8 이상이어야 합니다");
+			setPasswordErroMessage("패스워드 길이는 8 이상이어야 합니다");
 		}
 	};
 	const handleSubmitForm = async () => {

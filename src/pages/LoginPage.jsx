@@ -71,7 +71,7 @@ const LoginPage = () => {
 				navigate("/");
 				return;
 			} else {
-				alert("아이디 또는 비밀번호가 일치하지 않습니다");
+				alert("이메일 또는 비밀번호가 일치하지 않습니다");
 			}
 			return result;
 		} catch (error) {
@@ -83,7 +83,7 @@ const LoginPage = () => {
 		if (localStorage.getItem("userInfo")) {
 			navigate("/");
 		}
-	}, [navigate]);
+	}, []);
 
 	return (
 		<main className={cx("wrap")}>
