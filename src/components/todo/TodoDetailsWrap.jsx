@@ -32,7 +32,6 @@ const TodoDetailsWrap = ({ onClick }) => {
 			});
 			const result = await response.json();
 			if ("data" in result) {
-				console.log(result.data);
 				titleRef.current.value = result.data.title;
 				contentRef.current.value = result.data.content;
 			}
@@ -59,6 +58,8 @@ const TodoDetailsWrap = ({ onClick }) => {
 			if ("data" in result) {
 				titleRef.current.value = "";
 				contentRef.current.value = "";
+			} else {
+				alert("할 일을 입력해주세요");
 			}
 			return;
 		} catch (error) {
@@ -140,27 +141,30 @@ const TodoDetailsWrap = ({ onClick }) => {
 					size="2x"
 				/>
 			</button>
-			<TodoDetails
-				textareaName="title"
-				textareaID="myTitle"
-				minLength="2"
-				maxLength="25"
-				placeholder="할 일을 입력하세요"
-				height="20px"
-				useRef={titleRef}
-			>
-				할 일
-			</TodoDetails>
-			<TodoDetails
-				textareaName="details"
-				textareaID="myDetails"
-				maxLength="318"
-				placeholder="상세 내용을 입력하세요"
-				height="220px"
-				useRef={contentRef}
-			>
-				상세 내용
-			</TodoDetails>
+			<div className={cx("details")}>
+				<TodoDetails
+					textareaName="title"
+					textareaID="myTitle"
+					minLength="2"
+					maxLength="25"
+					placeholder="할 일을 입력하세요"
+					height="20px"
+					useRef={titleRef}
+				>
+					할 일
+				</TodoDetails>
+				<TodoDetails
+					textareaName="details"
+					textareaID="myDetails"
+					maxLength="318"
+					placeholder="상세 내용을 입력하세요"
+					height="220px"
+					useRef={contentRef}
+				>
+					상세 내용
+				</TodoDetails>
+			</div>
+
 			{idx === 0 && path === undefined ? null : (
 				<FontAwesomeIcon
 					icon={faChevronLeft}

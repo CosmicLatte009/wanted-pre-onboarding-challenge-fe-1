@@ -50,8 +50,7 @@
 
 .todo-container {
 	width: 800px;
-	-ms-flex-preferred-size: 520px;
-	flex-basis: 520px;
+	height: 560px;
 	border-radius: 10px;
 	border: 1.5px solid var(--border-color);
 	background-color: #ffffff;
@@ -76,9 +75,9 @@
 }
 
 .todo-container.closed {
-	width: 500px;
-	-ms-flex-preferred-size: 520px;
-	flex-basis: 520px;
+	width: 418px;
+	-ms-flex-preferred-size: 560px;
+	flex-basis: 560px;
 	border-radius: 10px;
 	border: 1.5px solid var(--border-color);
 	background-color: #ffffff;

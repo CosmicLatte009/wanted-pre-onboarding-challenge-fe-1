@@ -13,10 +13,11 @@ const TodoListWrap = ({ onTodoClicked }) => {
 	return (
 		<div className={cx("wrap")}>
 			<p className={cx("title")}>할 일 목록</p>
-			{todoDatas &&
-				todoDatas.map((item, index) => (
-					<ol key={index}>
+			<ol className={cx("list-wrap")}>
+				{todoDatas &&
+					todoDatas.map((item, index) => (
 						<TodoList
+							key={index}
 							onTodoClicked={() => {
 								onTodoClicked();
 								ctx.getPath(item.id);
@@ -24,8 +25,8 @@ const TodoListWrap = ({ onTodoClicked }) => {
 						>
 							{item.title}
 						</TodoList>
-					</ol>
-				))}
+					))}
+			</ol>
 		</div>
 	);
 };
