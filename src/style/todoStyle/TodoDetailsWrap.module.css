@@ -1,5 +1,5 @@
 .wrap {
-	min-width: 400px;
+	min-width: 450px;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-left: 1.5px solid var(--border-color);
@@ -59,8 +59,8 @@
 	width: 15px;
 	height: 15px;
 	position: absolute;
-	top: 45%;
-	left: 2%;
+	top: 50%;
+	left: 4%;
 }
 
 .icon-next {
@@ -69,8 +69,8 @@
 	width: 15px;
 	height: 15px;
 	position: absolute;
-	top: 45%;
-	right: 2%;
+	top: 50%;
+	right: 4%;
 }
 
 .icon-prev:hover,

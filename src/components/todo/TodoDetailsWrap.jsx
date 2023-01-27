@@ -165,14 +165,14 @@ const TodoDetailsWrap = ({ onClick }) => {
 				</TodoDetails>
 			</div>
 
-			{idx === 0 && path === undefined ? null : (
+			{idx === 0 || path === undefined ? null : (
 				<FontAwesomeIcon
 					icon={faChevronLeft}
 					className={cx("icon-prev")}
 					onClick={handlePrevTodo}
 				/>
 			)}
-			{idx === todoDatas.length - 1 && path === undefined ? null : (
+			{idx === todoDatas.length - 1 || path === undefined ? null : (
 				<FontAwesomeIcon
 					icon={faChevronRight}
 					className={cx("icon-next")}
