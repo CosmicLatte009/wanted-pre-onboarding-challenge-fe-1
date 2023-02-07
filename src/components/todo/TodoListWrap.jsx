@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import TodoList from "./TodoList";
 import styles from "../../style/todoStyle/TodoListWrap.module.css";
 import classNames from "classnames/bind";
+import { TodoDataContext } from "../../context/TodoDataContext";
 
 const cx = classNames.bind(styles);
 
-const TodoListWrap = () => {
+const TodoListWrap = ({ onTodoClicked }) => {
+	const ctx = useContext(TodoDataContext);
+	const { todoDatas } = ctx;
+
 	return (
 		<div className={cx("wrap")}>
 			<p className={cx("title")}>할 일 목록</p>
-			<ol>
-				<TodoList>할 일 리스트1</TodoList>
-				<TodoList>
-					할 일 리스트를 길게 적어도 말줄임표가 있어서 문제 없다
-				</TodoList>
-			</ol>
+			{todoDatas &&
+				todoDatas.map((item, index) => (
+					<ol key={index}>
+						<TodoList
+							onTodoClicked={() => {
+								onTodoClicked();
+								ctx.getPath(item.id);
+							}}
+						>
+							{item.title}
+						</TodoList>
+					</ol>
+				))}
 		</div>
 	);
 };

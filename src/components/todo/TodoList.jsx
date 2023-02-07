@@ -1,18 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import styles from "../../style/todoStyle/TodoList.module.css";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const TodoList = ({ children }) => {
+const TodoList = (props) => {
+	const { children, onTodoClicked } = props;
+
+	const [isChecked, setIsChecked] = useState(false);
+
+	const checkedIcon = (
+		<FontAwesomeIcon
+			icon={faSquareCheck}
+			className={cx("icon-checkbox", { checked: isChecked })}
+			onMouseUp={() => setIsChecked(false)}
+			onMouseDown={() => setIsChecked(true)}
+		/>
+	);
+	const unCheckedIcon = (
+		<FontAwesomeIcon
+			icon={faSquare}
+			className={cx("icon-checkbox")}
+			onMouseUp={() => setIsChecked(true)}
+			onMouseDown={() => setIsChecked(false)}
+		/>
+	);
+
 	return (
 		<li className={cx("todo-list")}>
-			<FontAwesomeIcon icon={faSquare} className={cx("icon-checkbox")} />
-			<p className={cx("desc")}>{children}</p>
-			<FontAwesomeIcon icon={faEllipsisVertical} className={cx("icon-menu")} />
+			{isChecked ? checkedIcon : unCheckedIcon}
+			<p className={cx("desc", { checked: isChecked })} onClick={onTodoClicked}>
+				{children}
+			</p>
+			<FontAwesomeIcon
+				icon={faPenToSquare}
+				className={cx("icon-modify", { checked: isChecked })}
+				onClick={onTodoClicked}
+			/>
+			{isChecked ? <hr /> : null}
 		</li>
 	);
 };

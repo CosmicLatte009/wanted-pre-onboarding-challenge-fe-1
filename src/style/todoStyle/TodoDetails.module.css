@@ -1,8 +1,10 @@
 .wrap {
 	text-align: center;
-	margin: 35px auto 0;
+	margin: 5px;
 }
-
+.wrap + .wrap {
+	margin-top: 35px;
+}
 .title {
 	font-size: 18px;
 	font-weight: 500;

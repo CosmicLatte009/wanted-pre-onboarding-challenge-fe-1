@@ -21,6 +21,7 @@
 	margin: 40px auto 40px;
 	font-weight: 500;
 	font-size: 72px;
+	color: var(--primary-color);
 }
 
 .btn-create {
@@ -49,7 +50,34 @@
 
 .todo-container {
 	width: 800px;
-	-ms-flex-preferred-size: 800px;
+	-ms-flex-preferred-size: 520px;
+	flex-basis: 520px;
+	border-radius: 10px;
+	border: 1.5px solid var(--border-color);
+	background-color: #ffffff;
+	-webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-transition: all 0.15s;
+	-o-transition: all 0.15s;
+	transition: all 0.15s;
+	-webkit-transition-timing-function: cubic-bezier(0.03, 0.16, 1.5, 1.5);
+	-o-transition-timing-function: cubic-bezier(0.03, 0.16, 1.5, 1.5);
+	transition-timing-function: cubic-bezier(0.03, 0.16, 5, 5);
+}
+
+.todo-container.closed {
+	width: 500px;
+	-ms-flex-preferred-size: 520px;
 	flex-basis: 520px;
 	border-radius: 10px;
 	border: 1.5px solid var(--border-color);

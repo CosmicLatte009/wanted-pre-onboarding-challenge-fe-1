@@ -20,6 +20,7 @@
 	font-size: 14px;
 	font-weight: 500;
 	cursor: pointer;
+	position: relative;
 }
 
 .todo-list:hover {
@@ -41,14 +42,48 @@
 	text-overflow: ellipsis;
 }
 
+hr {
+	position: absolute;
+	left: 35px;
+	width: 276px;
+	height: 2px;
+	border: 0;
+	border-top: 1px solid var(--border-color);
+}
+
 .icon-checkbox {
 	padding: 10px;
-	color: var(--primary-color);
+	font-size: 13.5px;
 	color: var(--highlight-color);
 }
 
-.icon-menu {
+.icon-checkbox:hover {
+	background-image: url("../../svg/square-check.svg");
+	background-repeat: no-repeat;
+	background-size: 13.5px;
+	background-position: 50%;
+}
+
+.icon-modify {
 	padding: 12px;
 	margin-right: 5px;
+	color: var(--border-color);
+}
+
+.icon-modify:hover {
+	color: var(--dark-color);
+}
+
+.icon-checkbox.checked,
+.desc.checked,
+.icon-modify.checked {
+	color: var(--border-color);
+}
+
+.icon-checkbox.checked:hover {
+	color: var(--highlight-color);
+}
+
+.icon-modify.checked:hover {
 	color: var(--grey-text-color);
 }
