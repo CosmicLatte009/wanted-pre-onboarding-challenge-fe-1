@@ -4,7 +4,18 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const TodoDetails = (props) => {
+interface MyProps {
+	children: string;
+	textareaName: string;
+	textareaID: string;
+	minLength?: any;
+	maxLength: any;
+	placeholder: string;
+	height: string;
+	useRef: any;
+}
+
+const TodoDetails: React.FC<MyProps> = (props) => {
 	const {
 		children,
 		textareaName,
@@ -20,7 +31,6 @@ const TodoDetails = (props) => {
 			<p className={cx("title")}>{children}</p>
 			<textarea
 				className={cx("textarea-box")}
-				type="text"
 				name={textareaName}
 				id={textareaID}
 				minLength={minLength}

@@ -6,7 +6,9 @@ import { TodoDataContext } from "../../context/TodoDataContext";
 
 const cx = classNames.bind(styles);
 
-const TodoListWrap = ({ onTodoClicked }) => {
+const TodoListWrap: React.FC<{ onTodoClicked: () => void }> = ({
+	onTodoClicked,
+}) => {
 	const ctx = useContext(TodoDataContext);
 	const { todoDatas } = ctx;
 

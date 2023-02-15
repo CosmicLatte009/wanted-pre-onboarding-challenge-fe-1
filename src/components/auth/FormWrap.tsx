@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const FormWrap = ({ children }) => {
+const FormWrap: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
 	return (
 		<form className={cx("wrap")} action="" method="">
 			{children}

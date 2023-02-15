@@ -8,7 +8,12 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const TodoList = (props) => {
+interface MyProps {
+	children: string;
+	onTodoClicked: () => void;
+}
+
+const TodoList: React.FC<MyProps> = (props) => {
 	const { children, onTodoClicked } = props;
 
 	const [isChecked, setIsChecked] = useState(false);
