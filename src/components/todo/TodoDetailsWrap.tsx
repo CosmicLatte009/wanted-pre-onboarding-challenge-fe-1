@@ -12,26 +12,30 @@ import { TodoDataContext } from "../../context/TodoDataContext";
 
 const cx = classNames.bind(styles);
 
-const TodoDetailsWrap = ({ onClick }) => {
+// type onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => void;
+
+const TodoDetailsWrap: React.FC<{
+	onClick: React.MouseEventHandler;
+}> = ({ onClick }) => {
 	const ctx = useContext(TodoDataContext);
 	const { todoDatas, path } = ctx;
 
-	const titleRef = useRef();
-	const contentRef = useRef();
+	const titleRef = useRef<HTMLInputElement | undefined>();
+	const contentRef = useRef<HTMLInputElement | undefined>();
 
-	const url = "http://localhost:8080/todos";
-	const urlWithId = `http://localhost:8080/todos/${path}`;
+	const url: string = "http://localhost:8080/todos";
+	const urlWithId: string = `http://localhost:8080/todos/${path}`;
 
 	const handleGetTodoByID = async () => {
 		try {
-			const response = await fetch(urlWithId, {
+			const response: Response = await fetch(urlWithId, {
 				method: "GET",
 				headers: {
-					Authorization: localStorage.getItem("userInfo"),
+					Authorization: localStorage.getItem("userInfo") || "",
 				},
 			});
 			const result = await response.json();
-			if ("data" in result) {
+			if ("data" in result && titleRef.current && contentRef.current) {
 				titleRef.current.value = result.data.title;
 				contentRef.current.value = result.data.content;
 			}
@@ -42,22 +46,22 @@ const TodoDetailsWrap = ({ onClick }) => {
 
 	const handleCraeteTodo = async () => {
 		const reqData = {
-			title: titleRef.current.value,
-			content: contentRef.current.value,
+			title: titleRef.current?.value || "",
+			content: contentRef.current?.value || "",
 		};
 		try {
 			const response = await fetch(url, {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
-					Authorization: localStorage.getItem("userInfo"),
+					Authorization: localStorage.getItem("userInfo") || "",
 				},
 				body: JSON.stringify(reqData),
 			});
 			const result = await response.json();
-			if ("data" in result) {
-				titleRef.current.value = "";
-				contentRef.current.value = "";
+			if ("data" in result && titleRef.current && contentRef.current) {
+				titleRef.current.value = result.data.title;
+				contentRef.current.value = result.data.content;
 			} else {
 				alert("할 일을 입력해주세요");
 			}
@@ -69,15 +73,15 @@ const TodoDetailsWrap = ({ onClick }) => {
 
 	const handleUpdateTodo = async () => {
 		const reqData = {
-			title: titleRef.current.value,
-			content: contentRef.current.value,
+			title: titleRef.current?.value,
+			content: contentRef.current?.value,
 		};
 		try {
 			const response = await fetch(urlWithId, {
 				method: "PUT",
 				headers: {
 					"Content-type": "application/json",
-					Authorization: localStorage.getItem("userInfo"),
+					Authorization: localStorage.getItem("userInfo") || "",
 				},
 				body: JSON.stringify(reqData),
 			});
@@ -96,11 +100,11 @@ const TodoDetailsWrap = ({ onClick }) => {
 			const response = await fetch(urlWithId, {
 				method: "DELETE",
 				headers: {
-					Authorization: localStorage.getItem("userInfo"),
+					Authorization: localStorage.getItem("userInfo") || "",
 				},
 			});
 			const result = await response.json();
-			if ("data" in result) {
+			if ("data" in result && titleRef.current && contentRef.current) {
 				titleRef.current.value = "";
 				contentRef.current.value = "";
 				alert("할 일이 삭제되었습니다.");
@@ -122,7 +126,7 @@ const TodoDetailsWrap = ({ onClick }) => {
 	};
 
 	useEffect(() => {
-		if (path === undefined) {
+		if (path === undefined && titleRef.current && contentRef.current) {
 			titleRef.current.value = "";
 			contentRef.current.value = "";
 		}

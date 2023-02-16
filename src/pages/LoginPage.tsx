@@ -8,18 +8,18 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const LoginPage = () => {
-	const [emailValid, setEmailValid] = useState(false);
-	const [passwordValid, setPasswordValid] = useState(false);
+const LoginPage: React.FC = () => {
+	const [emailValid, setEmailValid] = useState<boolean>(false);
+	const [passwordValid, setPasswordValid] = useState<boolean>(false);
 
-	const [emailErrorMessage, setEmailErrorMessage] = useState("");
-	const [passwordErrorMessage, setPasswordMessage] = useState("");
+	const [emailErrorMessage, setEmailErrorMessage] = useState<string>("");
+	const [passwordErrorMessage, setPasswordMessage] = useState<string>("");
 
-	const emailRef = useRef();
-	const passwordRef = useRef();
+	const emailRef = useRef<HTMLInputElement>();
+	const passwordRef = useRef<HTMLInputElement>();
 	const navigate = useNavigate();
 
-	const emailValidCheck = ({ target }) => {
+	const emailValidCheck = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
 		const emailValue = target.value;
 		const emailRegex =
 			/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -27,7 +27,7 @@ const LoginPage = () => {
 		if (!emailRegex.test(emailValue)) {
 			setEmailValid(false);
 			setEmailErrorMessage("이메일 형식에 맞게 입력해주세요");
-			if (emailRef.current.value === "") {
+			if (emailRef.current?.value === "") {
 				setEmailErrorMessage("");
 			}
 		} else {
@@ -35,12 +35,14 @@ const LoginPage = () => {
 			setEmailErrorMessage("");
 		}
 	};
-	const passwordValidCheck = ({ target }) => {
+	const passwordValidCheck = ({
+		target,
+	}: React.ChangeEvent<HTMLInputElement>) => {
 		const passwordValue = target.value;
 		if (passwordValue.length >= 8) {
 			setPasswordValid(true);
 			setPasswordMessage("");
-		} else if (passwordRef.current.value === "") {
+		} else if (passwordRef.current?.value === "") {
 			setPasswordValid(false);
 			setPasswordMessage("");
 		} else {
@@ -51,8 +53,8 @@ const LoginPage = () => {
 	const handleSubmitForm = async () => {
 		const url = "http://localhost:8080/users/login";
 		const reqData = {
-			email: emailRef.current.value,
-			password: passwordRef.current.value,
+			email: emailRef.current?.value,
+			password: passwordRef.current?.value,
 		};
 		try {
 			const response = await fetch(url, {
