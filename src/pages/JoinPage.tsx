@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import FormWrap from "../components/auth/FormWrap";
 import Button from "../components/auth/Button";
@@ -50,7 +50,8 @@ const JoinPage: React.FC = () => {
 			setPasswordErroMessage("패스워드 길이는 8 이상이어야 합니다");
 		}
 	};
-	const handleSubmitForm = async () => {
+
+	const handleSubmitForm = useCallback(async () => {
 		const url = "http://localhost:8080/users/create";
 		const reqData = {
 			email: emailRef.current?.value,
@@ -64,27 +65,27 @@ const JoinPage: React.FC = () => {
 				},
 				body: JSON.stringify(reqData),
 			});
+
 			const result = await response.json();
-			const message = result.message;
-			if (message === "계정이 성공적으로 생성되었습니다") {
-				alert(message);
+
+			if (result.message === "계정이 성공적으로 생성되었습니다") {
 				localStorage.setItem("userInfo", result.token);
-				navigate("/");
-				return;
+				alert(result.message);
 			} else {
 				alert(result.details);
 			}
-			return result;
 		} catch (error) {
 			console.log("error", error);
 		}
-	};
+	}, []);
 
 	useEffect(() => {
 		if (localStorage.getItem("userInfo")) {
 			navigate("/");
+		} else {
+			navigate({ pathname: "/join", search: "" });
 		}
-	}, [navigate]);
+	}, [handleSubmitForm, navigate]);
 
 	return (
 		<main className={cx("wrap")}>
