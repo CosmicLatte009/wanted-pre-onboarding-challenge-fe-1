@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import TodoList from "./TodoList";
 import styles from "../../style/todoStyle/TodoListWrap.module.css";
 import classNames from "classnames/bind";
@@ -10,7 +10,11 @@ const TodoListWrap: React.FC<{ onTodoClicked: () => void }> = ({
 	onTodoClicked,
 }) => {
 	const ctx = useContext(TodoDataContext);
-	const { todoDatas } = ctx;
+	const { todoDatas, getTodoList } = ctx;
+
+	useEffect(() => {
+		getTodoList();
+	}, []);
 
 	return (
 		<div className={cx("wrap")}>
