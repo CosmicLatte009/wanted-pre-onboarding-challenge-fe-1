@@ -9,14 +9,14 @@ export interface TodoData {
 }
 
 export interface TodoDataContextType {
-	getTodoList: (data: TodoData[]) => void;
+	getTodoList: () => Promise<void>;
 	todoDatas: TodoData[];
 	getPath: (clickedId: string | undefined) => void;
 	path: string | undefined;
 }
 
 export const TodoDataContext = createContext<TodoDataContextType>({
-	getTodoList: () => {},
+	getTodoList: () => Promise.resolve(),
 	todoDatas: [],
 	getPath: () => {},
 	path: undefined,
@@ -58,18 +58,35 @@ const TodoDataContextProvider: React.FC<{ children?: React.ReactNode }> = ({
 }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	const handleTodoDatas = (data: TodoData[]) => {
-		dispatch({ type: "SET_TODODATAS", payload: data });
-	};
-
 	const handlePath = (clickedId: string | undefined) => {
 		dispatch({ type: "SET_PATH", payload: clickedId });
+	};
+
+	const handleGetTodoList = async (): Promise<void> => {
+		const url: string = "http://localhost:8080/todos";
+		try {
+			const response = await fetch(url, {
+				method: "GET",
+				headers: {
+					Authorization: localStorage.getItem("userInfo") || "",
+				},
+			});
+			const result = await response.json();
+
+			if ("data" in result) {
+				const todoList: TodoData[] = result.data;
+				dispatch({ type: "SET_TODODATAS", payload: todoList });
+				return;
+			}
+		} catch (error) {
+			console.log("error", error);
+		}
 	};
 
 	return (
 		<TodoDataContext.Provider
 			value={{
-				getTodoList: handleTodoDatas,
+				getTodoList: handleGetTodoList,
 				todoDatas: state.todoDatas,
 				getPath: handlePath,
 				path: state.path,
