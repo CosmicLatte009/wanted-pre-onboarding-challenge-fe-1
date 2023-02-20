@@ -12,8 +12,6 @@ import { TodoDataContext } from "../../context/TodoDataContext";
 
 const cx = classNames.bind(styles);
 
-// type onClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => void;
-
 const TodoDetailsWrap: React.FC<{
 	onClick: React.MouseEventHandler;
 }> = ({ onClick }) => {
@@ -60,14 +58,18 @@ const TodoDetailsWrap: React.FC<{
 			});
 			const result = await response.json();
 			if ("data" in result && titleRef.current && contentRef.current) {
+				alert("할 일이 추가되었습니다.");
 				titleRef.current.value = result.data.title;
 				contentRef.current.value = result.data.content;
+				ctx.getTodoList();
 			} else {
 				alert("할 일을 입력해주세요");
 			}
 			return;
 		} catch (error) {
 			console.log("error", error);
+		} finally {
+			ctx.getPath(undefined);
 		}
 	};
 
@@ -88,6 +90,8 @@ const TodoDetailsWrap: React.FC<{
 			const result = await response.json();
 			if ("data" in result) {
 				alert("할 일이 수정되었습니다.");
+				ctx.getTodoList();
+				ctx.getPath(result.data.id);
 			}
 			return;
 		} catch (error) {
@@ -108,6 +112,7 @@ const TodoDetailsWrap: React.FC<{
 				titleRef.current.value = "";
 				contentRef.current.value = "";
 				alert("할 일이 삭제되었습니다.");
+				ctx.getTodoList();
 				ctx.getPath(undefined);
 			}
 		} catch (error) {
@@ -133,7 +138,7 @@ const TodoDetailsWrap: React.FC<{
 		if (path !== undefined) {
 			handleGetTodoByID();
 		}
-	}, [path]);
+	}, [path, handleCraeteTodo]);
 
 	return (
 		<div className={cx("wrap")}>
