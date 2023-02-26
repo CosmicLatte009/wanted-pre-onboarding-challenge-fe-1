@@ -2,7 +2,7 @@
 
 # **☑️원티드 프리온보딩 프론트엔드 챌린지 TODO 사이트☑️**
 
-<img width="840" src="https://user-images.githubusercontent.com/87015026/221516277-f1d797f2-4744-4807-9375-57c528392d6b.png"/>
+<img width="1000" src="https://user-images.githubusercontent.com/87015026/221516277-f1d797f2-4744-4807-9375-57c528392d6b.png"/>
 
 </div>
 
@@ -108,7 +108,7 @@ context
 
 |                                                          로그인 성공                                                           |                                                         회원가입 성공                                                          |                                                            로그아웃                                                            |
 | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| <img width="300" src="https://user-images.githubusercontent.com/87015026/222404070-614f810c-3afa-4e54-af43-8206055f3001.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/222405059-e62dad94-ffc7-498c-a57e-4d457b89cb3b.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/222408667-779f77f4-6893-4b2e-9cae-fe60640dc0a5.gif"/> |
+| <img width="300" src="https://user-images.githubusercontent.com/87015026/223122331-d611a1d2-60d6-4df5-b356-7d55053a008b.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/223122989-e63629f3-9d05-47ad-a781-800d795313de.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/223123479-57a2024f-975d-4cb3-81a3-e970829082b8.gif"/> |
 |                                               token 있을 시 HomePage로 navigate                                                |                                                  이메일, 비밀번호 유효성 확인                                                  |                                                  token 삭제로 간단히 로그아웃                                                  |
 
 </br>
@@ -125,12 +125,12 @@ context
 
 |                                                           TODO 체크                                                            |                                                         TODO 창 조작법                                                         |                                                    이전,다음 todo 상세보기                                                     |
 | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| <img width="300" src="https://user-images.githubusercontent.com/87015026/221534112-3dea9e0c-fc36-49f5-9ebb-07e21cf52fd4.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/221533599-991a2a5f-e5a6-4790-a5b5-a67f9ecfe035.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/221530712-0d19d357-995c-400b-8ae8-d536449c847e.gif"/> |
+| <img width="300" src="https://user-images.githubusercontent.com/87015026/223118670-c899bb26-a175-4aa2-afee-32c5c19ed0fd.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/223121625-45f691c2-3193-4fdf-bf62-ace818128196.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/223119152-1472c16a-5d19-495b-8fdc-2ad885cea4f6.gif"/> |
 |                                                          끝낸 일 체크                                                          |                                           리스트 클릭으로 열고 'X' 아이콘으로 닫는다                                           |                                           맨 앞과 맨 뒤의 상세에서는 표기되지 않는다                                           |
 
 |                                                           TODO 추가                                                            |                                                           TODO 수정                                                            |                                                           TODO 삭제                                                            |
 | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
-| <img width="300" src="https://user-images.githubusercontent.com/87015026/222405284-e240d2af-8c8f-4033-9005-d4e8c9d8e06f.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/222405555-fe71d6d9-2f7c-4741-99df-91e4c2ea9a6c.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/222405662-daf8174d-b741-4b9f-a61c-c44844ed4651.gif"/> |
+| <img width="300" src="https://user-images.githubusercontent.com/87015026/223116607-0a7105ab-ec38-4fad-a603-babdfe24e62c.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/223117373-070af603-4d7f-4022-91d3-ecd67ba933ad.gif"/> | <img width="300" src="https://user-images.githubusercontent.com/87015026/223118155-87e0dec4-978a-48e1-a7d5-40ab7800a5b9.gif"/> |
 |                                                        새로 할 일 추가                                                         |                                                        기존 할 일 수정                                                         |                                                        기존 할 일 삭제                                                         |
 
 </br>
