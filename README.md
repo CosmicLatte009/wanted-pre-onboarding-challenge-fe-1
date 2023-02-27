@@ -37,8 +37,8 @@
 
 ### **[버전 관리 및 트러블슈팅]**
 
-- GitHub
-- GitHub-Wiki
+- 버전관리: GitHub
+- 트러블슈팅: 🔗[GitHub-Wiki](https://github.com/CosmicLatte009/wanted-pre-onboarding-challenge-fe-1/wiki)
 
 ### **[테스트용 계정]**
 
