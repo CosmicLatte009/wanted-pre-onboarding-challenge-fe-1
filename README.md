@@ -143,7 +143,7 @@ context
 
 ### **1. 리듀서 함수 정의**
 
-```
+```javascript
 const reducer = (state: State, action: ActionType) => {
 	switch (action.type) {
 		case "SET_TODODATAS":
@@ -170,7 +170,7 @@ const reducer = (state: State, action: ActionType) => {
 
 ### **2. TodoDataContextProvider 정의**
 
-```
+```javascript
 const TodoDataContextProvider: React.FC<{ children?: React.ReactNode }> = ({
 	children,
 }) => {
