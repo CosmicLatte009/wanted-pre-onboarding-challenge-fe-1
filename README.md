@@ -2,7 +2,7 @@
 
 # **☑️원티드 프리온보딩 프론트엔드 챌린지 TODO 사이트☑️**
 
-<img width="1000" src="https://user-images.githubusercontent.com/87015026/221516277-f1d797f2-4744-4807-9375-57c528392d6b.png"/>
+<img width="800" src="https://user-images.githubusercontent.com/87015026/225018361-33cdc085-800b-4383-8632-f1e2dc85166b.png"/>
 
 </div>
 
